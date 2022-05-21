@@ -1,38 +1,125 @@
-.App {
-  text-align: center;
+.header-container {
+    width: 100%;
+    height: 72px;
+    background-color: #0064EB;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header-logo {
+    height: 40px;
+    width: 40.98px;
+    margin-right: 22.02px;
+    margin-left: 41px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.form-container input {
+    height: 40px;
+    width: 500px;
+    border-radius: 6px;
+    padding-left: 44px;
+    font-size: 14px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.form-container input#search {
+    background-image:url('./img/search.svg');
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: 19px center;
 }
 
-.App-link {
-  color: #61dafb;
+
+
+.data-container {
+    margin: 39px 96px 29px 57px;
+    display: flex;
+    text-align: left;
+    flex-direction: column;
+    width: 280px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.avatar {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+}
+
+.username {
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: 0;
+    text-align: left;
+    margin-bottom: 12px;
+}
+
+.userlink {
+    text-decoration: none;
+    font-size: 18px;
+    color: #0064EB;
+    margin-bottom: 30px;
+}
+
+.follow-container {
+    width: 110%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.icon {
+    height: 24px;
+    width: 24px;
+    margin-right: 8px;
+}
+
+.followers, .following {
+    display: flex;
+    align-items: flex-end;
+    font-size: 16px;
+}
+
+
+
+.repos-container {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 29px 24px;
+    background: #fff;
+    border-radius: 6px;
+}
+
+.repos-name {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    color: #0064EB;
+    margin-bottom: 16px;
+    text-decoration: none;
+}
+
+.repos-description {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #000000;
+}
+
+.empty-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 250px;
+    height: 100px;
+    font-size: 22px;
+    color: #808080;
 }
