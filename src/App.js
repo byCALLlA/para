@@ -32,7 +32,7 @@ function App() {
     //useEffect(() => console.log(repo))
     //useEffect(() => console.log(currentPage))
 
-    const items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 142, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,9, 10, 11, 12, 13, 142, 3, 4, 5, 6, 7, 8, 9, 10, 11,9, 10, 11, 12, 13, 142, 3, 4, 5, 6, 7, 8, 9, 10, 11,99];
+        // const items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 142, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,9, 10, 11, 12, 13, 142, 3, 4, 5, 6, 7, 8, 9, 10, 11,9, 10, 11, 12, 13, 142, 3, 4, 5, 6, 7, 8, 9, 10, 11,99];
 
    /* function Items({ currentItems }) {
         return (
@@ -48,7 +48,7 @@ function App() {
     } */
 
     // We start with an empty list of items.
-    const [currentItems, setCurrentItems] = useState(null);
+    //const [currentItems, setCurrentItems] = useState(null);
     const [pageCount, setPageCount] = useState(0);
     // Here we use item offsets; we could also use page offsets
     // following the API or data you're working with.
@@ -60,7 +60,7 @@ function App() {
         console.log(
             `User requested page number ${event.selected}, which is offset ${newOffset}`
         );
-        console.log(currentItems)
+        //console.log(currentItems)
         setItemOffset(newOffset);
         setCurrentPage(event.selected + 1)
         fetchRepo(event.selected + 1)
@@ -79,7 +79,7 @@ function App() {
         // Fetch items from another resources.
         const endOffset = itemOffset + itemsPerPage;
         console.log(`Loading items from ${itemOffset} to ${endOffset}`);
-        setCurrentItems(items.slice(itemOffset, endOffset));
+       // setCurrentItems(items.slice(itemOffset, endOffset));
         setPageCount(Math.ceil(user['public_repos'] / itemsPerPage));
     }, [user, itemOffset, itemsPerPage]);
 
