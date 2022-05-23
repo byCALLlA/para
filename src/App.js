@@ -10,7 +10,7 @@ import Repositories from "./components/Repositories";
 
 function App() {
     const [initialState, setInitialState] = useState(true)
-    //const [isLoaded, setIsLoaded] = useState(false)
+    const [isLoaded, setIsLoaded] = useState(false)
     const [user, setUser] = useState('')
     const [repo, setRepo] = useState([])
     const [username, setUsername] = useState('')
