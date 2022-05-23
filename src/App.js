@@ -108,7 +108,7 @@ function App() {
         <div className="data-container">
             <img  className="avatar" alt='Avatar' src={user['avatar_url']}/>
             <h1 className="username">{user.name}</h1>
-            <a href={user['html_url']} className="userlink" target="_blank">{user.login}</a>
+            <a href={user['html_url']} className="userlink" target="_blank" rel="noreferrer">{user.login}</a>
             <div className="follow-container">
                 <div className="followers">
                     <img className="icon" src={followers} alt="followers"></img>
@@ -130,7 +130,7 @@ function App() {
 
                 <div className="repos-container">  {repo.map((repo) =>
                     <div key={repo.id}>
-                    <a href={repo['html_url']} target="_blank" className="repos-name">{repo.name}</a>
+                    <a href={repo['html_url']} target="_blank" rel="noreferrer" className="repos-name">{repo.name}</a>
                     <div  className="repos-description"> {repo.description}</div></div>  ) }
 
                 </div>
