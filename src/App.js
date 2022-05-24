@@ -1,16 +1,17 @@
 import './App.css';
 import {useEffect, useState} from "react";
 import InitialState from "./components/InitialState";
-//import UserNotFound from "./components/UserNotFound";
+import UserNotFound from "./components/UserNotFound";
 import EmptyList from "./components/EmptyList";
 import Header from "./components/Header";
-//import Loader from "./components/Loader";
+import Loader from "./components/Loader";
 import User from "./components/User";
 import Repositories from "./components/Repositories";
 
 function App() {
     const [initialState, setInitialState] = useState(true)
-    //const [isLoaded, setIsLoaded] = useState(false)
+    const [isLoad, setIsLoad] = useState(false)
+    const [userNotFound, setUserNotFound] = useState(false)
     const [user, setUser] = useState('')
     const [repo, setRepo] = useState([])
     const [username, setUsername] = useState('')
@@ -27,16 +28,28 @@ function App() {
 
     const fetchUser = () => {
         fetch(`https://api.github.com/users/${username}`)
-            .then(response => response.json())
+            .then(response => {
+                if (response.status === 404) {
+                    setUserNotFound(true)
+                    } else {
+                    setUserNotFound(false)
+                }
+                    return response.json()
+            })
             .then(json => setUser(json))
     }
 
     const fetchRepo = (currentPage) => {
-        //setIsLoaded(true)
         fetch(`https://api.github.com/users/${username}/repos?per_page=4&page=${currentPage}`)
-            .then(response => response.json())
-            .then(json => setRepo(json))
-            //setIsLoaded(false)
+            .then(response => {
+                setIsLoad(true)
+                return response.json()
+            })
+            .then(json => {
+                setIsLoad(false)
+                return setRepo(json)
+            })
+
     }
 
     const [pageCount, setPageCount] = useState(0);
@@ -72,16 +85,15 @@ function App() {
             setUsername={setUsername}
             fetchGit={fetchGit}
         />
-
-        {
-            initialState
-            ?   <InitialState/>
-            :   <div className="user-container">
-                    <User
-                        user={user}
-                        checkNum={checkNum}
-                    />
-                    {repo.length
+        {initialState && <InitialState/>}
+        {userNotFound && <UserNotFound/>}
+        {isLoad && <Loader/>}
+        {!initialState && !userNotFound && <div className="user-container">
+                            <User
+                                user={user}
+                                checkNum={checkNum}
+                            />
+                        {repo.length
                         ?<div>
                             <Repositories
                                 user={user}
@@ -93,8 +105,10 @@ function App() {
                             />
                         </div>
                         :   <EmptyList />
-                    }
-                </div>
+                        }
+             </div>
+
+
         }
     </div>
     );
