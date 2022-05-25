@@ -9,7 +9,7 @@ const Header = ({username, setUsername, fetchGit}) => {
                 <input
                     id="search"
                     type="text"
-                    placeholder={'введите имя'}
+                    placeholder={'Enter GitHub username and press Enter'}
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                 />

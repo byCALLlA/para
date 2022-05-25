@@ -1,6 +1,7 @@
 
 body {
     margin: 0;
+    font-family: "Inter", sans-serif;
 }
 
 .header-container {
@@ -155,6 +156,14 @@ body {
     color: #808080;
 }
 
+.empty-container-img {
+    width: 47px;
+    height: 47px;
+}
+
+.empty-container-text {
+    text-align: center;
+}
 
 
 .pagination-container {
@@ -249,6 +258,7 @@ body {
     height: 120px;
     -webkit-animation: spin 2s linear infinite;
     animation: spin 2s linear infinite;
+    background: rgba(0, 0, 0, 0.3);
 }
 
 

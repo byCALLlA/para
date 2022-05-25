@@ -49,7 +49,6 @@ function App() {
                 setIsLoad(false)
                 return setRepo(json)
             })
-
     }
 
     const [pageCount, setPageCount] = useState(0);
@@ -88,27 +87,26 @@ function App() {
         {initialState && <InitialState/>}
         {userNotFound && <UserNotFound/>}
         {isLoad && <Loader/>}
-        {!initialState && !userNotFound && <div className="user-container">
-                            <User
-                                user={user}
-                                checkNum={checkNum}
-                            />
-                        {repo.length
-                        ?<div>
-                            <Repositories
-                                user={user}
-                                repo={repo}
-                                currentPage={currentPage}
-                                itemsPerPage={itemsPerPage}
-                                handlePageClick={handlePageClick}
-                                pageCount={pageCount}
-                            />
-                        </div>
-                        :   <EmptyList />
-                        }
-             </div>
-
-
+        {!initialState && !userNotFound &&
+            <div className="user-container">
+                <User
+                    user={user}
+                    checkNum={checkNum}
+                />
+                {repo.length
+                ?<div>
+                    <Repositories
+                        user={user}
+                        repo={repo}
+                        currentPage={currentPage}
+                        itemsPerPage={itemsPerPage}
+                        handlePageClick={handlePageClick}
+                        pageCount={pageCount}
+                    />
+                </div>
+                :   <EmptyList />
+                }
+            </div>
         }
     </div>
     );
