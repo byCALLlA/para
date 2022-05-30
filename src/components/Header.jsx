@@ -4,8 +4,9 @@ import octocat from "../img/octocat.svg"
 const Header = ({username, setUsername, fetchGit}) => {
     return (
         <div className="header-container">
+            <img className="header-logo" src={octocat} alt="octocat" />
             <form className="form-container" onSubmit={fetchGit}>
-                <img className="header-logo" src={octocat} alt="octocat" />
+
                 <input
                     id="search"
                     type="text"
